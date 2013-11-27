@@ -1,0 +1,56 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2013.05.10.00.56.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@%{
+// $Id: scanner.l,v 1.1 2012-02-21 20:36:10-08 - - $
+
+#include <stdlib.h>
+
+#include "yyextern.h"
+
+%}
+
+%option 8bit
+%option debug
+%option ecs
+%option interactive
+%option nodefault
+%option noyywrap
+%option yylineno
+
+WHITESPACE  ([ \t\n])
+NUMBER      (_?[0-9]*)
+OTHER       (.)
+
+%%
+
+{WHITESPACE}    { }
+{NUMBER}        { return YYNUMBER; }
+{OTHER}         { return *yytext; }
+
+%%
+
+void yycleanup (void) {
+   yy_delete_buffer (YY_CURRENT_BUFFER);
+}
+
+@

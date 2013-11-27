@@ -1,0 +1,50 @@
+Author: Michael Walton (mwwalton@ucsc.edu)
+
+NAME
+     nsort - sort numbers read from stdin
+
+SYNOPSIS
+     nsort [-d]
+
+DESCRIPTION
+     Reads in numbers from stdin, and stops at end of file.  Error
+     messages are printed for any word that is not recognized by
+     scanf(3) as a number.  The numbers are printed sorted in
+     ascending order, one per line, to stdout using the printf(3)
+     format "%24.15g\n".
+
+OPTIONS
+     Options are scanned by getopt(3).
+
+     -d   Output is printed in debug format with pointers in "[%p]"
+          format.
+
+EXIT STATUS
+
+     0    No errors were detected.
+
+     1    Syntactically incorrect input numbers were detected.
+
+NAME
+     lsort - sort lines read from stdin
+
+SYNOPSIS
+     lsort [-d]
+
+DESCRIPTION
+     Reads in lines from stdin, stopping at end of file.  The lines
+     are printed sorted in ascending order to stdout.  The output
+     should be the same as that from sort(1).
+
+OPTIONS
+     Options are scanned by getopt(3).
+
+     -d   Output is printed in debug format with pointers in "[%p]"
+          format.
+
+EXIT STATUS
+
+     0    No errors were detected.
+
+     1    An unterminated line or a line longer than 80 characters was
+          detected.

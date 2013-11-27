@@ -1,0 +1,27 @@
+CMPS 12B/M Data Strucutres
+
+bigint: An arbitrary precision integer calculator implemented in C
+  Implements an array stack to store integer digits
+
+bitree_calc: An RPN calculator implemented in Java.
+  Uses binary trees to represent and compute RPN expressions
+
+cmatch: searches files for lines matching a user defined string.
+
+crpn: A C implementation of an RPN calculator (using a stack)
+
+jxref: A cross-referecning utility
+  Impliments a singly-linked list to store and cross-reference files by line
+
+l8stat: Displays file statistics using C system calls.
+
+lsort / nsort: sorts strings or lines respectively from stdin
+
+COURSE DESCRIPTION:
+Teaches students to implement common data structures and the algorithms associated with each data structure,
+through progressively difficult exercises.
+Topics include big "O" notation; pointers, recursion (induction), and dynamic allocation; linked lists
+and list processing; stacks, queues, binary trees and binary search trees;
+simple sorting techniques and simple search techniques.
+Students will gain a working knowledge of the elements of the Java and C programming languages.
+Prior experience with Unix is assumed.

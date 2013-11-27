@@ -1,0 +1,25 @@
+Author: Michael Walton (mwwalton@ucsc.edu)
+
+NAME
+       mydc - an arbitrary precision calculator
+
+SYNOPSIS
+       mydc [file ...]
+
+DESCRIPTION
+       Mydc  is a reverse-polish desk calculator which supports unlimited preci-
+       sion arithmetic.    Normally  mydc  reads  from the standard input; 
+       if any command arguments aregiven to it, they are filenames, and dc 
+       reads and executes the contents of  the files before reading from 
+       standard input.  All normal output is to standard output; all error 
+       output is to standard error.
+
+       A reverse-polish calculator stores numbers on a stack.  Entering a num-
+       ber  pushes  it  on the stack.  Arithmetic operations pop arguments off
+       the stack and push the results.
+
+       To enter a number in dc, type  the  digits  with  an  optional  decimal
+       point.   Exponential  notation  is  not supported.  To enter a negative
+       number, begin the number with ``_''.  ``-'' cannot be used for this, as
+       it  is a binary operator for subtraction instead.  To enter two numbers
+       in succession, separate them with spaces or newlines.

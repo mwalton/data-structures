@@ -1,0 +1,4 @@
+#!/bin/sh
+# $Id: mk,v 1.1 2013-10-16 13:47:36-07 - - $
+# Michael Walton (mwwalton@ucsc.edu)
+gcc -g -O0 -Wall -Wextra -std=gnu99 crpn.c -o crpn

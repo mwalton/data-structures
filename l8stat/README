@@ -1,0 +1,17 @@
+Author: Michael Walton (mwwalton@ucsc.edu)
+
+NAME
+l8stat -- stat a list of files
+
+SYNOPSIS
+l8stat [filename . . .]
+
+DESCRIPTION
+Each argument is a filename whose statistics are to be printed. If no file- names are given, the current directory (.) is used. For each file, print the mode, the file size in bytes , the file or link modification time, and the name. If a file is a symbolic link, the value of the link is also printed. If the time is more than 180 days from the current time, the month, day, and year are printed, otherwise, the month, day, and time.
+
+EXIT STATUS
+0 No errors were detected.
+1 Errors were detected and messages printed.
+
+SEE ALSO
+ls(1), man(1), stat(1), lstat(2), readlink(2), time(2), localtime(3), strerror(3), strftime(3).

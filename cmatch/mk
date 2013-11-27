@@ -1,0 +1,5 @@
+#!/bin/sh
+# Michael Walton (mwwalton@ucsc.edu)
+# $Id: mk,v 1.1 2013-10-28 12:23:48-07 - - $
+cid *.c mk
+gcc -g -O0 -Wall -Wextra -std=gnu99 cmatch.c -o cmatch

@@ -1,0 +1,85 @@
+Author: Michael Walton (mwwalton@ucsc.edu)
+
+NAME
+     bitreecalc - binary tree RPN calculator
+
+SYNOPSIS
+     bitreecalc [-e] [-ooutputfile] [inputfile...]
+
+DESCRIPTION
+     Each line of input is read as a separate statement, and executed
+     as it is read.  An input line may have one of four formats:
+
+     variable = expression
+          The RPN expression is converted into a tree and stored in
+          the symbol table entry associated with the variable.  A
+          postorder traversal of the tree is then done in order to
+          evaluate it, using the current values of all variables.
+          This new value is then stored in the symbol table associated
+          with the variable.  The value and tree are then printed as
+          for the query (?) operator.
+
+     variable : number
+          The number is stored in the symbol table and the tree is set
+          to null.  The value and tree are then printed.
+
+     variable ?
+          The tree is traversed and the value of the variable is
+          recomputed, in case any of the values of the operand
+          variables have changed.  The variable is found in the symbol
+          table and its value and tree are printed.  The tree is
+          printed using a fully-parenthesized in-order traversal.
+
+     # anything
+          Any line whose first non-whitespace character is a hash is
+          ignored as a comment.
+
+     A variable is any one of the 26 ASCII letters, either upper or
+     lower case.  An expression consists of either a variable, or two
+     expressions followed by an operator.  An operator is one of +, -,
+     *, or /.  White space is ignored, and any other character causes
+     an error message to be printed.  It is also an error if the
+     conversion stack underflows or contains more than one element at
+     the end of the line.
+
+     At the end of execution, all symbol table entries are printed to
+     the output in the same format as individual-line output,
+     including both the value and the tree.
+
+OPTIONS
+     Any word of the command line which begins with a minus sign is an
+     option.  A word of the command line consisting only of a minus
+     sign is an operand, not an option.  Options and operands may
+     appear in any order or mixed in any way as separate flags or
+     single-word flags.
+
+     -e   Each line of input is echoed to the output verbatim and
+          preceded by four asterisks and a space immediately before
+          being interpreted.  Without this option, input is not
+          echoed.
+
+     -o outputfile
+          Output is written to outputfile.  If this option is not
+          specified, output is written to the standard output.
+          Regardless of the -o flag, error messages are always written
+          to the standard error.  If the word specifying the -o option
+          is not followed by a filename, then the next word from the
+          command line is used as the output file.  If the output file
+          can not be opened, the program terminates immediately with
+          an error message.
+
+OPERANDS
+     If no input files are specified, the standard input is read.
+     Otherwise each of the filenames specified are read in turn, one
+     after the other, as if they were all concatenated together.  If
+     an input file is specified as a single-character word which is a
+     minus sign (-), then the standard input is read at that point.
+     If an input file can not be opened, an error message is printed,
+     and reading continues with the next file.
+
+EXIT STATUS
+
+     0    All input files were valid, no output errors were generated,
+          and no invalid options were found.
+
+     1    An error occurred opening an input or output file.

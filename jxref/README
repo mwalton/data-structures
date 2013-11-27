@@ -1,0 +1,33 @@
+Author: Michael Walton (mwwalton@ucsc.edu)
+
+NAME
+     jxref -- cross referencing and word count utility
+
+SYNOPSIS
+     jxref [filename...]
+
+DESCRIPTION
+     Each file is read in sequence and words are extracted from the
+     file.  At the end of each file, a table is printed, sorted in
+     lexicographic order with each word followed by a count of the
+     number of times it occurs and a list of the numbers of the lines
+     where it occurs.  Cross reference output is written to stdout
+     (System.out) and error messages are written to stderr (System.
+     err).
+
+OPTIONS
+     None.
+
+OPERANDS
+     Operands consist of the names of files to be read in sequence.
+     If no filenames are specified, stdin is read.  If filenames are
+     specified, each file is read in turn.  If a filename is specified
+     as a single minus sign (-) stdin is read at that point.  In order
+     to read a file whose name really is a minus sign, it should be
+     specified on the command line as ``./-''.
+
+EXIT STATUS
+
+     0    All input files were read successfully.
+
+     1    Error(s) occurred and message(s) was printed to stderr.

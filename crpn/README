@@ -1,0 +1,36 @@
+Author: Michael Walton (mwwalton@ucsc.edu)
+
+Reverse Polish notation [1] (RPN) was invented by the Polish logician
+Jan Lukasiewicz [2] and places all operators after their operands,
+which makes it much easier to parse than infix notation, and does not
+need parentheses to override operator precedence.  For example, the
+infix expression
+   3 * 4 + 5 * 6
+is represented as
+   3 4 * 5 6 * +
+in RPN.
+
+[1] http://en.wikipedia.org/wiki/Reverse_Polish_notation
+[2] http://en.wikipedia.org/wiki/Jan_%C5%81ukasiewicz
+
+Input to the program consists of double precision IEEE-754
+floating point numbers and calculator operators.  
+
+Algorithm:
+ (a) Any word on input that looks like a number to the function
+     strtod(3) is pushed onto a stack.
+
+ (b) If an input word consists of one of the operators '+', '-', '*',
+     or '/', two numbers will be popped off the stack, the right
+     operand being popped first and the left operand next, then the
+     result is pushed back onto the stack.
+
+ (c) The operator ';'  cause all numbers on the stack to be printed,
+     from bottom to top using the format "%.15g\n".
+
+ (d) The operator '@' clears the stack.
+
+ (e) Any input word beginning with the character '#' causes the rest
+     of the line to be ignored as a comment.
+
+ (f) Anything else on input is an error.
