@@ -69,19 +69,26 @@ void print_stats (char *pathname, struct stat fileStat) {
 
 int main (int argc, char **argv) {
   int exit_status = EXIT_SUCCESS;
-  char *bname = basename(argv[0]);
   setlocale (LC_NUMERIC, "en_US");
+  char *bname = basename(argv[0]); 
 
-  for (int argi = 1; argi < argc; ++argi) {
-    char *pathname = argv[argi];
-    struct stat fileStat;
-    int exists = stat(pathname, &fileStat);
+  if (argc > 1) {
+    for (int argi = 1; argi < argc; ++argi) {
+      char *pathname = argv[argi];
+      struct stat fileStat;
+      int exists = stat(pathname, &fileStat);
 
-    if (exists >= 0) {
-      print_stats(pathname, fileStat);
-    } else {
-      print_err(bname, pathname, &exit_status);
+      if (exists >= 0) {
+        print_stats(pathname, fileStat);
+      } else {
+        print_err(bname, pathname, &exit_status);
+      }
     }
+  } else {
+    char *pathname = ".";
+    struct stat fileStat;
+    stat(pathname, &fileStat);
+    print_stats(pathname, fileStat);
   }
 
   return exit_status;
